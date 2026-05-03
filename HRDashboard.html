@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerformTrack HR Dashboard</title>
+    
+    <link rel="stylesheet" href="Login.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="loadHRCharts(); updateHRPage();">
+
+    <div class="dashboard-page">
+        
+        <header class="topbar">
+    <div class="brand">PerformTrack</div>
+            <div class="topbar-right">
+              <span class="dashboard-badge">HR Dashboard</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+
+            <section class="table-card" style="margin-bottom: 25px;">
+                <h3>Register New Employee</h3>
+                <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+                    <input type="text" id="newEmpID" placeholder="ID (e.g. EMP505)" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    <input type="text" id="newEmpName" placeholder="Full Name" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    <input type="text" id="newEmpDept" placeholder="Department" style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+                    
+                    <button onclick="registerEmployee()" style="width: auto; margin: 0; padding: 10px 25px; font-size: 16px; background: #003b46; color: white; cursor: pointer; border-radius: 8px; border: none;">Add Employee</button>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card"><h3>Total Employees</h3><p id="hrTotalCount">0</p></div>
+                <div class="stat-card"><h3>Avg Performance</h3><p>84%</p></div>
+                <div class="stat-card"><h3>Promotion Eligible</h3><p id="hrEligibleCount">0</p></div>
+                <div class="stat-card"><h3>Pending Reviews</h3><p>9</p></div>
+            </section>
+
+            <section class="bottom-grid">
+                <div class="table-card">
+                    <h3>Pending Promotion Approvals</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hrApprovalTable">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-card">
+                    <h3>All Registered Employees</h3>
+                    <ul id="hrEmployeeList" style="list-style: none; padding: 0; max-height: 300px; overflow-y: auto;">
+                        </ul>
+                </div>
+            </section>
+
+            <section class="table-card" style="margin-top: 25px;">
+                <h3>Message Center</h3>
+                <div id="messageInbox" class="messageInbox">
+                    </div>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="msgRecipient" placeholder="To (e.g. Manager or EMP101)" style="flex: 1;">
+                    <input type="text" id="msgText" placeholder="Write a message..." style="flex: 2;">
+                    <button class="btn-action" onclick="sendMessage()">Send</button>
+                </div>
+            </section>
+
+            <div style="margin-top: 25px; display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn-action" onclick="generateSummary()">Generate Analytics</button>
+                <button class="btn-action btn-secondary" onclick="window.print()">Export Report</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="Login.js"></script>
+</body>
+</html>

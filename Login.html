@@ -1,0 +1,60 @@
+<!-- Login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PerformTrack Login</title>
+<!-- CSS -->
+<link rel="stylesheet" href="Login.css">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body class="login-page">
+<div class="container">
+
+    <div class="login-box">
+
+        <h1>USER LOGIN</h1>
+        <div id="message" class="error-box"></div>
+        <div class="input-group">
+            <span class="icon-left">👤</span>
+            <input type="text" id="username" placeholder="Username">
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+            <span class="icon-right">🔒</span>
+        </div>
+        <!-- Login Button -->
+        <button onclick="login()">LOGIN</button>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <!-- Gmail Login -->
+        <button class="google-btn" onclick="gmailLogin()">
+
+    <img src="https://www.svgrepo.com/show/475656/google-color.svg" 
+         alt="Google" 
+         class="google-logo">
+
+    Login with Google
+</button>
+<p class="create-account" onclick="createAccount()">
+    Create New Account
+</p>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="Login.js"></script>
+
+</body>
+</html>
